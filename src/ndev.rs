@@ -64,7 +64,7 @@ pub fn udev(tx: std::sync::mpsc::Sender<&'static str>) {
         debug!(">> {}", std::str::from_utf8(&n.0).unwrap());
         trace!("{:?}", uevent);
 
-        if uevent.action == ActionType::Add && is_nvidia_gpu(&uevent) && hotplug_device(5) {
+        if uevent.action == ActionType::Add && is_nvidia_gpu(&uevent) && hotplug_device(600) {
             debug!("hotplug activity finished, proceeding.");
             tx.send("hot-plug").unwrap();
         }

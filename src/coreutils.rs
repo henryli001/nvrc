@@ -4,7 +4,7 @@ use std::path::Path;
 
 pub fn ln(target: &str, linkpath: &str) {
     if let Err(e) = symlinkat(target, None, linkpath) {
-        panic!("Failed to create symlink {} -> {}: {}", linkpath, target, e);
+        println!("Failed to create symlink {} -> {}: {}", linkpath, target, e);
     }
 }
 
